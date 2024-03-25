@@ -44,7 +44,13 @@ INSTALLED_APPS = [
 
     #3rd party app
     'crispy_forms',
+    'crispy_bootstrap4',
 ]
+
+# set bootstrap4 as allowed and default template pack for a project
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
