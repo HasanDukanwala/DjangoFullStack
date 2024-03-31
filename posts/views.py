@@ -48,34 +48,36 @@ def post_detail(request, pk):
 @login_required
 def load_post_data_view(request, num_posts):
     #if request.method == 'POST':
-        visible = 3
-        upper = num_posts
-        lower = upper - visible
-        size = Post.objects.all().count()
+    visible = 3
+    upper = num_posts
+    lower = upper - visible
+    size = Post.objects.all().count()
 
-        qs = Post.objects.all()
-        data = []
-        for obj in qs:
-            item = {
-                'id': obj.id,
-                'title': obj.title,
-                'body': obj.body,
-                'liked': True if request.user in obj.liked.all() else False,
-                'count': obj.like_count,
-                'author': obj.author.user.username
+    qs = Post.objects.all()
+    data = []
+    for obj in qs:
+        item = {
+            'id': obj.id,
+            'title': obj.title,
+            'body': obj.body,
+            'liked': True if request.user in obj.liked.all() else False,
+            'count': obj.like_count,
+            'author': obj.author.user.username
             }
-            data.append(item)
-        return JsonResponse({'data':data[lower:upper], 'size':size})
+        data.append(item)
+    return JsonResponse({'data':data[lower:upper], 'size':size})
+   # return redirect('posts:main-board')
 
 @login_required
 def post_detail_data_view(request, pk):
-    if request.method == 'POST':
+    if request.method == 'GET':
         obj = Post.objects.get(pk=pk)
         data = {
             'id': obj.id,
             'title': obj.title,
             'body': obj.body,
             'author': obj.author.user.username,
+            'avatar':obj.author.avatar.url,
             'logged_in':request.user.username,
         }
         return JsonResponse({'data':data})

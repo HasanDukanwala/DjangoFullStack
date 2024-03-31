@@ -29,6 +29,7 @@ $.ajax({
     success: function(response){
         console.log(response)
         const data = response.data
+        console.log('Response data:', response.data);
 
         if(data.logged_in !== data.author){
             console.log('different')

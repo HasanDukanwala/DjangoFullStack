@@ -1,21 +1,21 @@
-<!-- {% url 'posts:main-board' as path_to_home %}
+{% url 'posts:main-board' as path_to_home %}
 {% url 'profiles:my-profile' as path_to_my_profile %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-    <div calss="container-fluid"> 
+    <div class="container-fluid"> 
         <a class="navbar-brand" href="{{path_to_home}}">Posts-proj</a>
-        <button class="navbar-toggler" type="button" data-bd-toggle="collapse">
-            <span clas="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {% if request.path == path_to_home %}active{% endif %}"></a>
+                    <a class="nav-link {% if request.path == path_to_home %} active {% endif %}" href="{{ path_to_home }}">Home</a>
                 </li>
-                <li calss="nav-item">
-                    <a class="nav-link {% if request.path == path_to_my_profile %}active{% endif %}"></a>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == path_to_my_profile %} active {% endif %}" href="{{ path_to_my_profile }}">Profile</a>
                 </li>
             </ul>
         </div>
     </div>
-</nav> -->
+</nav>
