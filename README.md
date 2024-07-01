@@ -1,0 +1,1 @@
+Django Tutorial project - walkthrough
